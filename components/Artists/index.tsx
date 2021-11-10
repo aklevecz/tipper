@@ -25,8 +25,12 @@ const Artists: FC<Props> = ({ name }) => {
           amount: {
             value: tipAmount,
           },
+          description: name,
         },
       ],
+      application_context: {
+        shipping_preference: "NO_SHIPPING",
+      },
     });
   };
 
@@ -49,6 +53,7 @@ const Artists: FC<Props> = ({ name }) => {
           <motion.div initial={{ x: -1000 }} animate={{ x: 0 }}>
             <div>{tipAmount}</div>
             <PayPalButtons
+              style={{ color: "black" }}
               createOrder={(data, actions) => createOrder(data, actions)}
               // @ts-ignore
               onApprove={(data, actions) => onApprove(data, actions)}

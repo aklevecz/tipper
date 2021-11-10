@@ -1,5 +1,14 @@
+:root {
+  --dark-grey: #7e7e7e;
+  --light-grey: #adadad;
+  --off-white: #fdfdfd;
+  --light-green: #68eda3;
+}
+
 html,
 body {
+  background: var(--dark-grey);
+  color: var(--off-white);
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
