@@ -117,13 +117,19 @@ export default function Artist({ artist: { name, img }, path }: Props) {
 }
 
 type Artist = "teh_raptor" | "one_child_policy" | "diamondstein" | "volta";
-
+const artistData = {
+  teh_raptor: { name: "Teh Raptor", img: "/teh.jpg" },
+  one_child_policy: { name: "One Child Policy", img: "" },
+  diamondstein: { name: "Diamondstein", img: "" },
+  volta: { name: "Volta Collective", img: "/volta.png" },
+  p_rugo: { name: "p.rugo", img: "" },
+};
 export async function getStaticProps(context: {
   params: { artistName: Artist };
 }) {
-  const artistData = await fetch(
-    "https://vercel.com/teh-raptor/api/artists"
-  ).then((r) => r.json());
+  // const artistData = await fetch(
+  //   "https://vercel.com/teh-raptor/api/artists"
+  // ).then((r) => r.json());
 
   const {
     params: { artistName },
@@ -137,9 +143,9 @@ export async function getStaticProps(context: {
 }
 
 export async function getStaticPaths(context: any) {
-  const artistData = await fetch(
-    "https://vercel.com/teh-raptor/api/artists"
-  ).then((r) => r.json());
+  // const artistData = await fetch(
+  //   "https://vercel.com/teh-raptor/api/artists"
+  // ).then((r) => r.json());
   const paths = Object.keys(artistData).map((artistName) => ({
     params: { artistName },
   }));
