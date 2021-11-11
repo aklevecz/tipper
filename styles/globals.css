@@ -1,4 +1,6 @@
 :root {
+  --black: #2e2d2d;
+  --darker-grey: #5a5a5a;
   --dark-grey: #7e7e7e;
   --light-grey: #adadad;
   --off-white: #fdfdfd;
@@ -7,7 +9,7 @@
 
 html,
 body {
-  background: var(--dark-grey);
+  background: var(--black);
   color: var(--off-white);
   padding: 0;
   margin: 0;

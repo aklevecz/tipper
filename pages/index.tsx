@@ -1,22 +1,40 @@
 import type { NextPage } from "next";
+import Link from "next/link";
+import Layout from "../components/Layout/Index";
 import styles from "../styles/Home.module.css";
-import Artists from "../components/Artists";
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
-      <Artists name="teh.raptor" />
-      {/* <div>
-        <div>teh.raptor</div>
-        <Image src={teh} />
-        <PayPalButtons
-          createOrder={(data, actions) => createOrder(data, actions)}
-          // @ts-ignore
-          onApprove={(data, actions) => onApprove(data, actions)}
-        />
-        <button>apple pay</button>
-      </div> */}
-    </div>
+    <Layout title="TIPPER">
+      <div className={styles.container}>
+        <Link href="/artist/volta">
+          <div className="artist-link">Volta</div>
+        </Link>
+        <Link href="/artist/teh_raptor">
+          <div className="artist-link">teh raptor</div>
+        </Link>
+        <Link href="/artist/diamondstein">
+          <div className="artist-link">Diamondstein</div>
+        </Link>
+        <Link href="/artist/one_child_policy">
+          <div className="artist-link">One Child Policy</div>
+        </Link>
+        <Link href="/artist/p.rugo">
+          <div className="artist-link">p.rugo</div>
+        </Link>
+      </div>
+      <style jsx>
+        {`
+          .artist-link {
+            background: var(--light-grey);
+            text-align: center;
+            margin: 10px;
+            font-size: 2rem;
+            padding: 20px;
+          }
+        `}
+      </style>
+    </Layout>
   );
 };
 

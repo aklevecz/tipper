@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 type Props = {
   children: JSX.Element | JSX.Element[];
@@ -8,7 +8,7 @@ type Props = {
 
 export default function Layout({ children, title }: Props) {
   const [height, setHeight] = useState(0);
-  useLayoutEffect(() => {
+  useEffect(() => {
     setHeight(window.innerHeight);
   }, []);
   return (
