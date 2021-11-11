@@ -127,9 +127,9 @@ const artistData = {
 export async function getStaticProps(context: {
   params: { artistName: Artist };
 }) {
-  // const artistData = await fetch(
-  //   "https://vercel.com/teh-raptor/api/artists"
-  // ).then((r) => r.json());
+  const artistData = await fetch(
+    "https://tipper-gray.vercel.app/api/artists"
+  ).then((r) => r.json());
 
   const {
     params: { artistName },
@@ -143,9 +143,9 @@ export async function getStaticProps(context: {
 }
 
 export async function getStaticPaths(context: any) {
-  // const artistData = await fetch(
-  //   "https://vercel.com/teh-raptor/api/artists"
-  // ).then((r) => r.json());
+  const artistData = await fetch(
+    "https://tipper-gray.vercel.app/api/artists"
+  ).then((r) => r.json());
   const paths = Object.keys(artistData).map((artistName) => ({
     params: { artistName },
   }));
