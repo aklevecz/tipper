@@ -47,7 +47,7 @@ export default function TipAmount({ updateTip, tip, next }: Props) {
               animate={{ scaleY: 1 }}
               exit={{ scaleY: 0 }}
             >
-              <div className="prompt">How much would you like to tip?</div>
+              <div className="prompt">Pick your tip!</div>
               <div className="tip-button-container">
                 {tipAmounts.map((tipAmount) => (
                   <div key={tipAmount} className="tip-button-wrapper">
@@ -65,7 +65,7 @@ export default function TipAmount({ updateTip, tip, next }: Props) {
             </motion.div>
           )}
         </AnimatePresence>
-        <div>
+        <div style={{ marginTop: 30 }}>
           <input
             placeholder="Custom Amount"
             onChange={onChange}
@@ -86,8 +86,14 @@ export default function TipAmount({ updateTip, tip, next }: Props) {
               margin-bottom: 20px;
             }
             .prompt {
-              font-size: 1.3rem;
-              margin-bottom: 4px;
+              font-size: 2rem;
+              background: white;
+              color: var(--black);
+              color: black;
+              padding: 10px;
+              width: 70%;
+              margin: 0px auto 30px;
+              font-weight: bold;
             }
             .tip-button-container {
               display: flex;

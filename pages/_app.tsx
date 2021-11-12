@@ -4,8 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { useRouter } from "next/dist/client/router";
-const CLIENT_ID =
-  "AdFHBu-ac-lCqSFCZNFWqkOOYAGebVU_KQ637Bly3vt_BngIcYuNpH5V1_H3CauFlGtJjK9Qj4hnFBur";
+const CLIENT_ID = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID!;
 
 const pageVariants = {
   pageInitial: {

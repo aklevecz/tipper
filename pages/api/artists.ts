@@ -14,7 +14,7 @@ export default function handler(
     one_child_policy: { name: "One Child Policy", img: "/ocp_logo.jpeg" },
     diamondstein: { name: "Diamondstein", img: "/diamondstein.jpeg" },
     volta: { name: "Volta Collective", img: "/volta.png" },
-    p_rugo: { name: "p.rugo", img: "" },
+    p_rugo: { name: "p.rugo", img: "/prugo.png" },
   };
   res.status(200).json(artistData);
 }

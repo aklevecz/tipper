@@ -8,7 +8,9 @@ const Home: NextPage = ({ artists }: { [key: string]: any }) => {
   return (
     <Layout title="TIPPER">
       <div className={styles.container}>
-        <h1 style={{ textAlign: "center" }}>{`Tonight's Artists`}</h1>
+        <h1
+          style={{ textAlign: "center", background: "black", padding: 10 }}
+        >{`Tonight's Artists`}</h1>
         {Object.keys(artists).map((key) => {
           const artist = artists[key];
           return (
@@ -20,7 +22,8 @@ const Home: NextPage = ({ artists }: { [key: string]: any }) => {
                   overflow: "hidden",
                   height: 100,
                   borderRadius: "20px",
-                  boxShadow: "inset 1px -1px 20px 12px red",
+                  boxShadow: "inset 1px -1px 20px 12px var(--red)",
+                  cursor: "pointer",
                 }}
               >
                 <div
@@ -32,7 +35,7 @@ const Home: NextPage = ({ artists }: { [key: string]: any }) => {
                     width: "100%",
                     top: 0,
                     left: 0,
-                    boxShadow: "inset 1px -1px 20px 12px red",
+                    boxShadow: "inset 1px -1px 20px 12px var(--red)",
                   }}
                 />
                 {/* <img
@@ -50,10 +53,11 @@ const Home: NextPage = ({ artists }: { [key: string]: any }) => {
                   style={{
                     position: "relative",
                     mixBlendMode: "difference",
-                    color: "white",
+                    color: "var(--red)",
                     fontWeight: "bold",
                     textAlign: "center",
                     background: "black",
+                    userSelect: "none",
                   }}
                 >
                   {artist.name}
