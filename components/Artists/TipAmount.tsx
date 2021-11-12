@@ -15,7 +15,7 @@ export default function TipAmount({ updateTip, tip, next }: Props) {
   const [customTip, setCustomTip] = useState(0);
   const tipAmountRef = useRef<any>();
   const onChange = (e: React.FormEvent<HTMLInputElement>) => {
-    const amount = parseInt(e.currentTarget.value);
+    const amount = parseInt(e.currentTarget.value.replace("$", ""));
     updateTip(amount);
     setCustomTip(amount);
   };
@@ -69,8 +69,8 @@ export default function TipAmount({ updateTip, tip, next }: Props) {
           <input
             placeholder="Custom Amount"
             onChange={onChange}
-            type="number"
-            value={tip > 0 ? tip : ""}
+            type="text"
+            value={tip > 0 ? "$" + tip : ""}
           />
         </div>
         <Pill

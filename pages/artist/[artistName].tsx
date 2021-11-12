@@ -81,6 +81,9 @@ export default function ArtistPage({ artist: { name, img }, path }: Props) {
       <div className={styles.nameTag}>
         <img src={"/smiler.svg"} />
       </div>
+      <div>
+        <a href="https://venmo.com/reldog?txn=pay&note=hi&amount=5">rel</a>
+      </div>
       <AnimatePresence exitBeforeEnter>
         <motion.div
           className={styles.container}
