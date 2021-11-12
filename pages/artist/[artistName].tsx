@@ -70,7 +70,7 @@ export default function ArtistPage({ artist: { name, img }, path }: Props) {
   const orderCompleted = (order: OrderResponseBody) => {
     setPayer(order.payer);
     setView(View.Completed);
-    fetch("http://localhost:5000/record-donation", {
+    fetch(`${process.env.DB_HOST}/record-donation`, {
       method: "POST",
       body: JSON.stringify({ order }),
     });
