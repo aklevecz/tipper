@@ -25,6 +25,8 @@ export default function Layout({ children, title }: Props) {
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            max-width: 500px;
+            margin: auto;
           }
         `}
       </style>
