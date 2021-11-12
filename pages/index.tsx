@@ -2,28 +2,62 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import Layout from "../components/Layout/Index";
 import styles from "../styles/Home.module.css";
-import { Artist } from "./types";
+import { Artist } from "../types";
 
 const Home: NextPage = ({ artists }: { [key: string]: any }) => {
   return (
     <Layout title="TIPPER">
       <div className={styles.container}>
+        <h1 style={{ textAlign: "center" }}>Tonight's Artists</h1>
         {Object.keys(artists).map((key) => {
           const artist = artists[key];
           return (
             <Link key={key} href={`/artist/${key}`}>
-              <div className="artist-link" style={{ position: "relative" }}>
+              <div
+                className="artist-link"
+                style={{
+                  position: "relative",
+                  overflow: "hidden",
+                  height: 100,
+                  borderRadius: "20px",
+                  boxShadow: "inset 1px -1px 20px 12px red",
+                }}
+              >
                 <div
                   style={{
                     background: `url(${artist.img})`,
-                    backgroundSize: "cover",
+                    backgroundSize: "contain",
                     position: "absolute",
                     height: "100%",
                     width: "100%",
                     top: 0,
+                    left: 0,
+                    boxShadow: "inset 1px -1px 20px 12px red",
                   }}
                 />
-                <div>{artist.name}</div>
+                {/* <img
+                  src={artist.img}
+                  style={{
+                    position: "absolute",
+                    width: "100%",
+                    // height: "100%",
+                    top: 0,
+                    left: 0,
+                    filter: "brightness(1.5) contrast(3)",
+                  }}
+                /> */}
+                <div
+                  style={{
+                    position: "relative",
+                    mixBlendMode: "difference",
+                    color: "white",
+                    fontWeight: "bold",
+                    textAlign: "center",
+                    background: "black",
+                  }}
+                >
+                  {artist.name}
+                </div>
               </div>
             </Link>
           );

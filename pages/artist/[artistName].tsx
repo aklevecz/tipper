@@ -9,7 +9,7 @@ import Completed from "../../components/Artists/Completed";
 import { OrderResponseBody } from "@paypal/paypal-js/types/apis/orders";
 
 import styles from "../../styles/Artist.module.css";
-import { Artist } from "../types";
+import { Artist } from "../../types";
 
 type Props = {
   artist: {
