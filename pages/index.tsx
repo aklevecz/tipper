@@ -11,7 +11,7 @@ const Home: NextPage = ({ artists }: { [key: string]: any }) => {
         {Object.keys(artists).map((key) => {
           const artist = artists[key];
           return (
-            <Link href={`/artist/${key}`}>
+            <Link key={key} href={`/artist/${key}`}>
               <div className="artist-link" style={{ position: "relative" }}>
                 <div
                   style={{
