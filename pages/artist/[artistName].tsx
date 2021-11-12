@@ -9,6 +9,7 @@ import Completed from "../../components/Artists/Completed";
 import { OrderResponseBody } from "@paypal/paypal-js/types/apis/orders";
 
 import styles from "../../styles/Artist.module.css";
+import { Artist } from "../types";
 
 type Props = {
   artist: {
@@ -58,7 +59,7 @@ const useNestedRouting = ({ view, setView }: any) => {
   }, []);
 };
 
-export default function Artist({ artist: { name, img }, path }: Props) {
+export default function ArtistPage({ artist: { name, img }, path }: Props) {
   const [view, setView] = useState<View>(View.Artist);
   useNestedRouting({ view, setView });
   const [tip, setTip] = useState(0);
@@ -77,7 +78,9 @@ export default function Artist({ artist: { name, img }, path }: Props) {
 
   return (
     <Layout title={name}>
-      <div className={styles.nameTag}>Tipping {name}</div>
+      <div className={styles.nameTag}>
+        <img src={"/smiler.svg"} />
+      </div>
       <AnimatePresence exitBeforeEnter>
         <motion.div
           className={styles.container}
@@ -116,20 +119,12 @@ export default function Artist({ artist: { name, img }, path }: Props) {
   );
 }
 
-type Artist = "teh_raptor" | "one_child_policy" | "diamondstein" | "volta";
-const artistData = {
-  teh_raptor: { name: "Teh Raptor", img: "/teh.jpg" },
-  one_child_policy: { name: "One Child Policy", img: "" },
-  diamondstein: { name: "Diamondstein", img: "" },
-  volta: { name: "Volta Collective", img: "/volta.png" },
-  p_rugo: { name: "p.rugo", img: "" },
-};
 export async function getStaticProps(context: {
   params: { artistName: Artist };
 }) {
-  const artistData = await fetch(
-    "https://tipper-gray.vercel.app/api/artists"
-  ).then((r) => r.json());
+  const artistData = await fetch(`${process.env.HOST}/api/artists`).then((r) =>
+    r.json()
+  );
 
   const {
     params: { artistName },
@@ -143,9 +138,9 @@ export async function getStaticProps(context: {
 }
 
 export async function getStaticPaths(context: any) {
-  const artistData = await fetch(
-    "https://tipper-gray.vercel.app/api/artists"
-  ).then((r) => r.json());
+  const artistData = await fetch(`${process.env.HOST}/api/artists`).then((r) =>
+    r.json()
+  );
   const paths = Object.keys(artistData).map((artistName) => ({
     params: { artistName },
   }));

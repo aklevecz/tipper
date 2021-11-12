@@ -10,9 +10,9 @@ export default function handler(
   res: NextApiResponse<any>
 ) {
   const artistData = {
-    teh_raptor: { name: "Teh Raptor", img: "/teh.jpg" },
-    one_child_policy: { name: "One Child Policy", img: "" },
-    diamondstein: { name: "Diamondstein", img: "" },
+    teh_raptor: { name: "Teh Raptor", img: "/teh.png" },
+    one_child_policy: { name: "One Child Policy", img: "/ocp_logo.jpeg" },
+    diamondstein: { name: "Diamondstein", img: "/diamondstein.jpeg" },
     volta: { name: "Volta Collective", img: "/volta.png" },
     p_rugo: { name: "p.rugo", img: "" },
   };

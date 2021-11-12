@@ -12,11 +12,17 @@
   position: absolute;
   top: 5px;
   font-size: 1.3rem;
-  background: var(--dark-grey);
+  /* background: var(--dark-grey); */
   width: 100%;
+  height: 100px;
   text-align: center;
   padding: 5px;
   color: var(--light-green);
+}
+
+.nameTag > img {
+  height: 100%;
+  width: 100%;
 }
 
 .container > :last-child {

@@ -61,15 +61,20 @@ export default function TipAmount({ updateTip, tip, next }: Props) {
                   </div>
                 ))}
               </div>
-              <div className="prompt">Custom Amount</div>
+              {/* <div className="prompt">Custom Amount</div> */}
             </motion.div>
           )}
         </AnimatePresence>
         <div>
-          <input onChange={onChange} type="number" value={tip > 0 ? tip : ""} />
+          <input
+            placeholder="Custom Amount"
+            onChange={onChange}
+            type="number"
+            value={tip > 0 ? tip : ""}
+          />
         </div>
         <Pill
-          styles={{ marginTop: 40 }}
+          styles={{ marginTop: 30 }}
           disabled={!tip}
           name="Next"
           onClick={next}
@@ -96,14 +101,13 @@ export default function TipAmount({ updateTip, tip, next }: Props) {
               margin-bottom: -20px;
             }
             input {
+              color: var(--black);
               height: 50px;
               border: none;
               border-radius: 20px;
               font-size: 2rem;
               text-align: center;
               width: 90%;
-              background: var(--light-grey);
-              color: white;
             }
           `}
         </style>
