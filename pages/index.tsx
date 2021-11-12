@@ -8,7 +8,7 @@ const Home: NextPage = ({ artists }: { [key: string]: any }) => {
   return (
     <Layout title="TIPPER">
       <div className={styles.container}>
-        <h1 style={{ textAlign: "center" }}>Tonight's Artists</h1>
+        <h1 style={{ textAlign: "center" }}>{`Tonight's Artists`}</h1>
         {Object.keys(artists).map((key) => {
           const artist = artists[key];
           return (
