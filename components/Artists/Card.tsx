@@ -20,7 +20,7 @@ export default function ArtistsCard({ name, img, goToTip }: Props) {
         {`
           .img-wrapper {
             width: 250px;
-            margin: 20px auto;
+            margin: 50px auto;
           }
 
           .img-wrapper > img {
