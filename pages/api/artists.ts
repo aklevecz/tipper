@@ -11,7 +11,11 @@ export default function handler(
 ) {
   const artistData = {
     teh_raptor: { name: "Teh Raptor", img: "/teh.png" },
-    one_child_policy: { name: "One Child Policy", img: "/ocp_logo.jpeg" },
+    one_child_policy: {
+      name: "One Child Policy",
+      img: "/ocp_logo.jpeg",
+      alt_img: "/ocp_press.png",
+    },
     diamondstein: { name: "Diamondstein", img: "/diamondstein.jpeg" },
     volta: { name: "Volta Collective", img: "/volta.png" },
     p_rugo: { name: "p.rugo", img: "/prugo.png" },

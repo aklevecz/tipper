@@ -15,6 +15,7 @@ type Props = {
   artist: {
     name: string;
     img: string;
+    alt_img?: string;
   };
   path: string;
 };
@@ -59,7 +60,10 @@ const useNestedRouting = ({ view, setView }: any) => {
   }, []);
 };
 
-export default function ArtistPage({ artist: { name, img }, path }: Props) {
+export default function ArtistPage({
+  artist: { name, img, alt_img },
+  path,
+}: Props) {
   const [view, setView] = useState<View>(View.Artist);
   useNestedRouting({ view, setView });
   const [tip, setTip] = useState(0);
@@ -95,7 +99,7 @@ export default function ArtistPage({ artist: { name, img }, path }: Props) {
           {view === View.Artist && (
             <ArtistsCard
               name={name}
-              img={img}
+              img={alt_img ? alt_img : img}
               goToTip={() => setView(View.TipAmount)}
             />
           )}
