@@ -9,7 +9,7 @@
 }
 
 .nameTag {
-  position: absolute;
+  /* position: absolute; */
   top: 5px;
   font-size: 1.3rem;
   /* background: var(--dark-grey); */

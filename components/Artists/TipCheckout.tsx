@@ -10,10 +10,16 @@ import { OrderResponseBody } from "@paypal/paypal-js/types/apis/orders";
 type Props = {
   name: string;
   tip: number;
+  venmo: string;
   orderCompleted: (order: OrderResponseBody) => void;
 };
 
-export default function TipCheckout({ tip, name, orderCompleted }: Props) {
+export default function TipCheckout({
+  tip,
+  name,
+  venmo,
+  orderCompleted,
+}: Props) {
   const createOrder = (data: UnknownObject, actions: CreateOrderActions) => {
     return actions.order.create({
       purchase_units: [
@@ -47,6 +53,17 @@ export default function TipCheckout({ tip, name, orderCompleted }: Props) {
         <span style={{ background: "black", padding: 20 }}>${tip}</span>
       </div>
       <div style={{ marginTop: 15 }}>{name}</div>
+      <button
+        onClick={() =>
+          window.open(
+            `https://venmo.com/${venmo}?txn=pay&note=FUN ASPECT TIP&amount=${tip}`,
+            "_blank"
+          )
+        }
+      >
+        <img src="/venmo_logo_blue.png" />
+        Directly
+      </button>
       <div style={{ marginTop: 20 }}>
         <PayPalButtons
           style={{ color: "white" }}
@@ -55,6 +72,25 @@ export default function TipCheckout({ tip, name, orderCompleted }: Props) {
           onApprove={(data, actions) => onApprove(data, actions)}
         />
       </div>
+      <style jsx>
+        {`
+          button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            font-size: 19px;
+            color: black;
+            font-style: italic;
+            font-weight: bolder;
+            margin-top: 20px;
+          }
+          img {
+            width: 30%;
+            margin-right: 10px;
+          }
+        `}
+      </style>
     </div>
   );
 }

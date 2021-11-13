@@ -16,6 +16,8 @@ type Props = {
     name: string;
     img: string;
     alt_img?: string;
+    socials: { [key: string]: string };
+    venmo: string;
   };
   path: string;
 };
@@ -61,7 +63,7 @@ const useNestedRouting = ({ view, setView }: any) => {
 };
 
 export default function ArtistPage({
-  artist: { name, img, alt_img },
+  artist: { name, img, alt_img, socials, venmo },
   path,
 }: Props) {
   const [view, setView] = useState<View>(View.Artist);
@@ -85,9 +87,9 @@ export default function ArtistPage({
       <div className={styles.nameTag}>
         <img src={"/smiler.svg"} />
       </div>
-      <div>
+      {/* <div>
         <a href="https://venmo.com/reldog?txn=pay&note=hi&amount=5">rel</a>
-      </div>
+      </div> */}
       <AnimatePresence exitBeforeEnter>
         <motion.div
           className={styles.container}
@@ -100,6 +102,7 @@ export default function ArtistPage({
             <ArtistsCard
               name={name}
               img={alt_img ? alt_img : img}
+              socials={socials}
               goToTip={() => setView(View.TipAmount)}
             />
           )}
@@ -114,6 +117,7 @@ export default function ArtistPage({
             <TipCheckout
               name={name}
               tip={tip}
+              venmo={venmo}
               orderCompleted={orderCompleted}
             />
           )}

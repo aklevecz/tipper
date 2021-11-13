@@ -6,10 +6,11 @@ import Soundcloud from "../Icons/Soundcloud";
 type Props = {
   name: string;
   img: string;
+  socials: { [key: string]: string };
   goToTip: () => void;
 };
 
-export default function ArtistsCard({ name, img, goToTip }: Props) {
+export default function ArtistsCard({ name, img, socials, goToTip }: Props) {
   return (
     <>
       <div className="heading">{name}</div>
@@ -17,15 +18,21 @@ export default function ArtistsCard({ name, img, goToTip }: Props) {
         <img src={img} />
       </div>
       <div className="icon-container">
-        <div>
-          <Soundcloud />
-        </div>
-        <div>
-          <Bandcamp />
-        </div>
-        <div>
-          <Instagram />
-        </div>
+        {socials.soundcloud && (
+          <div onClick={() => window.open(socials.soundcloud, "_blank")}>
+            <Soundcloud />
+          </div>
+        )}
+        {socials.bandcamp && (
+          <div onClick={() => window.open(socials.bandcamp, "_blank")}>
+            <Bandcamp />
+          </div>
+        )}
+        {socials.instagram && (
+          <div onClick={() => window.open(socials.instagram, "_blank")}>
+            <Instagram />
+          </div>
+        )}
       </div>
       <div>
         <Pill onClick={goToTip} name="Tip" />
@@ -34,7 +41,7 @@ export default function ArtistsCard({ name, img, goToTip }: Props) {
         {`
           .img-wrapper {
             width: 250px;
-            margin: 50px auto;
+            margin: 50px auto 20px;
           }
 
           .img-wrapper > img {
