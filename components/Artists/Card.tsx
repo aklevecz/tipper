@@ -28,15 +28,16 @@ export default function ArtistsCard({ name, img, socials, goToTip }: Props) {
         <img src={img} />
       </div>
       <div className="icon-container">
-        {Object.keys(socials).map((key) => {
-          if (socials && socials[key]) {
-            return (
-              <div onClick={() => window.open(socials[key], "_blank")}>
-                {componentMap[key]}
-              </div>
-            );
-          }
-        })}
+        {socials &&
+          Object.keys(socials).map((key) => {
+            if (socials && socials[key]) {
+              return (
+                <div onClick={() => window.open(socials[key], "_blank")}>
+                  {componentMap[key]}
+                </div>
+              );
+            }
+          })}
         {/* {socials.soundcloud && (
           <div onClick={() => window.open(socials.soundcloud, "_blank")}>
             <Soundcloud />
