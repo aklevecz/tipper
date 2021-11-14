@@ -62,8 +62,9 @@ export default function TipCheckout({
         }
       >
         <img src="/venmo_logo_blue.png" />
-        Directly
+        {`${name} Directly`}
       </button>
+      <div style={{ fontSize: "2rem" }}> or </div>
       <div style={{ marginTop: 20 }}>
         <PayPalButtons
           style={{ color: "white" }}
