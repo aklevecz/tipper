@@ -29,7 +29,7 @@ export default function ArtistsCard({ name, img, socials, goToTip }: Props) {
       </div>
       <div className="icon-container">
         {Object.keys(socials).map((key) => {
-          if (socials[key]) {
+          if (socials && socials[key]) {
             return (
               <div onClick={() => window.open(socials[key], "_blank")}>
                 {componentMap[key]}
