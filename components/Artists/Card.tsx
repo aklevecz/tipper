@@ -12,6 +12,14 @@ type Props = {
   goToTip: () => void;
 };
 
+const componentMap: any = {
+  soundcloud: <Soundcloud />,
+  bandcamp: <Bandcamp />,
+  instagram: <Instagram />,
+  vimeo: <Vimeo />,
+  website: <Website />,
+};
+
 export default function ArtistsCard({ name, img, socials, goToTip }: Props) {
   return (
     <>
@@ -20,7 +28,16 @@ export default function ArtistsCard({ name, img, socials, goToTip }: Props) {
         <img src={img} />
       </div>
       <div className="icon-container">
-        {socials.soundcloud && (
+        {Object.keys(socials).map((key) => {
+          if (socials[key]) {
+            return (
+              <div onClick={() => window.open(socials[key], "_blank")}>
+                {componentMap[key]}
+              </div>
+            );
+          }
+        })}
+        {/* {socials.soundcloud && (
           <div onClick={() => window.open(socials.soundcloud, "_blank")}>
             <Soundcloud />
           </div>
@@ -44,7 +61,7 @@ export default function ArtistsCard({ name, img, socials, goToTip }: Props) {
           <div onClick={() => window.open(socials.website, "_blank")}>
             <Website />
           </div>
-        )}
+        )} */}
       </div>
       <div>
         <Pill onClick={goToTip} name="Tip" />
