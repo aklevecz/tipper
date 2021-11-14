@@ -1,4 +1,4 @@
-export default function () {
+export default function Soundcloud() {
   return (
     <img
       src={"/soundcloud_logo.png"}

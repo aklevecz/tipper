@@ -1,4 +1,4 @@
-export default function () {
+export default function Instagram() {
   return (
     <img
       src={"/instagram_logo.png"}
