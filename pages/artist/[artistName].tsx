@@ -76,7 +76,7 @@ export default function ArtistPage({
   const orderCompleted = (order: OrderResponseBody) => {
     setPayer(order.payer);
     setView(View.Completed);
-    fetch(`${process.env.DB_HOST}/record-donation`, {
+    fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/record-donation`, {
       method: "POST",
       body: JSON.stringify({ order }),
     });

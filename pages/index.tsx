@@ -6,11 +6,11 @@ import { Artist } from "../types";
 
 const Home: NextPage = ({ artists }: { [key: string]: any }) => {
   return (
-    <Layout title="TIPPER">
+    <Layout title="Tip">
       <div className={styles.container}>
-        <h1
+        {/* <h1
           style={{ textAlign: "center", background: "black", padding: 10 }}
-        >{`Tonight's Artists`}</h1>
+        >{`Tonight's Artists`}</h1> */}
         {Object.keys(artists).map((key) => {
           const artist = artists[key];
           return (

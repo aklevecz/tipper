@@ -15,6 +15,7 @@ export default function Layout({ children, title }: Props) {
     <div>
       <Head>
         <title>{title}</title>
+        <link rel="shortcut icon" href="/favi.png" />
       </Head>
       {children}
       <style jsx>

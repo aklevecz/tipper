@@ -6,6 +6,8 @@ import {
   UnknownObject,
 } from "@paypal/paypal-js/types/components/buttons";
 import { OrderResponseBody } from "@paypal/paypal-js/types/apis/orders";
+import { useState } from "react";
+import Spinner from "../Loading/Spinner";
 
 type Props = {
   name: string;
@@ -20,6 +22,8 @@ export default function TipCheckout({
   venmo,
   orderCompleted,
 }: Props) {
+  const [processing, setProcessing] = useState(false);
+
   const createOrder = (data: UnknownObject, actions: CreateOrderActions) => {
     return actions.order.create({
       purchase_units: [
@@ -37,14 +41,16 @@ export default function TipCheckout({
   };
 
   const onApprove = (data: OnApproveData, actions: OnApproveActions) => {
-    console.log(data);
+    setProcessing(true);
     return actions.order.capture().then((order) => {
       if (order.status === "COMPLETED") {
         orderCompleted(order);
       }
       if (order.status === "VOIDED") {
         // order voided
+        alert("Something went wrong :(");
       }
+      setProcessing(false);
     });
   };
   return (
@@ -53,19 +59,28 @@ export default function TipCheckout({
         <span style={{ background: "black", padding: 20 }}>${tip}</span>
       </div>
       <div style={{ marginTop: 15 }}>{name}</div>
-      <button
-        onClick={() =>
-          window.open(
-            `https://venmo.com/${venmo}?txn=pay&note=FUN ASPECT TIP&amount=${tip}`,
-            "_blank"
-          )
-        }
-      >
-        <img src="/venmo_logo_blue.png" />
-        {`${name} Directly`}
-      </button>
-      <div style={{ fontSize: "2rem" }}> or </div>
-      <div style={{ marginTop: 20 }}>
+      {venmo && (
+        <>
+          <button
+            onClick={() =>
+              window.open(
+                `https://venmo.com/${venmo}?txn=pay&note=FUN ASPECT TIP&amount=${tip}`,
+                "_blank"
+              )
+            }
+          >
+            <img src="/venmo_logo_blue.png" />
+            {`${name} Directly`}
+          </button>
+          <div style={{ fontSize: "2rem" }}> or </div>
+        </>
+      )}
+      {processing && (
+        <div style={{ marginTop: 30 }}>
+          <Spinner />
+        </div>
+      )}
+      <div style={{ marginTop: 20, opacity: processing ? 0 : 1 }}>
         <PayPalButtons
           style={{ color: "white" }}
           createOrder={(data, actions) => createOrder(data, actions)}

@@ -13,10 +13,12 @@ export default function handler(
     teh_raptor: {
       name: "Teh Raptor",
       img: "/teh.png",
+      alt_img: "/teh_alt.png",
       socials: {
         bandcamp: "",
-        soundcloud: "",
-        instagram: "",
+        soundcloud: "https://soundcloud.com/teh-raptor",
+        instagram: "https://instagram.com/teh.raptor",
+        website: "http://raptor.pizza",
       },
       venmo: "",
     },
@@ -35,9 +37,9 @@ export default function handler(
       name: "Diamondstein",
       img: "/diamondstein.jpeg",
       socials: {
-        bandcamp: "",
-        soundcloud: "",
-        instagram: "",
+        bandcamp: "https://diamondstein.bandcamp.com/",
+        soundcloud: "https://soundcloud.com/diamondstein",
+        instagram: "https://www.instagram.com/diamondsteinav/",
       },
       venmo: "",
     },
@@ -47,7 +49,9 @@ export default function handler(
       socials: {
         bandcamp: "",
         soundcloud: "",
-        instagram: "",
+        instagram: "https://www.instagram.com/volta_collective/",
+        vimeo: "https://vimeo.com/voltacollective",
+        website: "https://voltacollective.com",
       },
       venmo: "",
     },
@@ -57,7 +61,18 @@ export default function handler(
       socials: {
         bandcamp: "",
         soundcloud: "",
-        instagram: "",
+        instagram: "https://www.instagram.com/philiprugo/",
+      },
+      venmo: "",
+    },
+    cloaking: {
+      name: "cloaking",
+      img: "/cloaking_logo.png",
+      socials: {
+        bandcamp: "",
+        soundcloud: "",
+        instagram: "https://www.instagram.com/cloaking__/",
+        website: "http://cloaking.us/",
       },
       venmo: "",
     },

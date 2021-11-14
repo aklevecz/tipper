@@ -2,6 +2,8 @@ import Pill from "../Buttons/Pill";
 import Bandcamp from "../Icons/Bandcamp";
 import Instagram from "../Icons/Instagram";
 import Soundcloud from "../Icons/Soundcloud";
+import Vimeo from "../Icons/Vimeo";
+import Website from "../Icons/Website";
 
 type Props = {
   name: string;
@@ -31,6 +33,16 @@ export default function ArtistsCard({ name, img, socials, goToTip }: Props) {
         {socials.instagram && (
           <div onClick={() => window.open(socials.instagram, "_blank")}>
             <Instagram />
+          </div>
+        )}
+        {socials.vimeo && (
+          <div onClick={() => window.open(socials.vimeo, "_blank")}>
+            <Vimeo />
+          </div>
+        )}
+        {socials.website && (
+          <div onClick={() => window.open(socials.website, "_blank")}>
+            <Website />
           </div>
         )}
       </div>
