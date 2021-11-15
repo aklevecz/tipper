@@ -19,7 +19,7 @@ const Home: NextPage = ({ artists }: { [key: string]: any }) => {
                 className="artist-link"
                 style={{
                   position: "relative",
-                  overflow: "hidden",
+                  // overflow: "hidden",
                   height: 100,
                   borderRadius: "20px",
                   boxShadow: "inset 1px -1px 20px 12px var(--red)",
